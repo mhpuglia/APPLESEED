@@ -28,13 +28,13 @@
 %		'hp'			- 	[in Hz] high-pass filter cutoff  {default: 0.3}
 %		'lp'			- 	[in Hz] low-pass filter cutoff {default: 50}
 %		'eplen'			- 	[in ms] epoch length {default: 1000}
-%		'arxt'			- 	[in µV] threshold for identification of extreme voltage 
+%		'arxt'			- 	[in ¬µV] threshold for identification of extreme voltage 
 %						  	artifacts {default: 500}
 %		'runica'		- 	['on'|'off'] decompose data into independent components for the 
 %						  	identification of data artifacts {default: 'on'}
 %		'icarejmethd' 	- 	['adjusted_ADJUST'|'ADJUST'|'manual'] the method to identify 
 %						  	components contaminated with artifacts {default: 'adjusted_ADJUST'}
-%		'arsd'			- 	[in µV] threshold for identification of artifacts that exceed 
+%		'arsd'			- 	[in ¬µV] threshold for identification of artifacts that exceed 
 %						  	this maximum standard deviation change within a 200 ms moving 
 %						  	window {default: 80}
 %		'chaninterp'	- 	['on'|'off'] interpolate channels identified as problematic via 
@@ -82,7 +82,7 @@
 %			https://doi.org/10.1101/2021.07.10.450198.
 %		Richman, J.S., Moorman, J.R., 2000. Physiological time-series analysis using 
 %			approximate entropy and sample entropy. Am. J. Physiol. Circ. Physiol. 278, 
-%			H2039–H2049. 
+%			H2039√êH2049. 
 %
 %
 % 		An example dataset is available for download from https://openneuro.org/datasets/ds003710.
@@ -93,7 +93,7 @@
 %		EEG data from 48 recording sessions from 13 infants and a channel location file and
 %		a bin file (located in the "APPLESEED_Example_Dataset > code" directory). 
 %
-%		See Puglia, Slobin, & Williams (2021) for more information on the tutorial dataset 
+%		See Puglia, Slobin, & Williams (2021) for more information on the example dataset 
 %		and the development and optimization of APPLESEED.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -111,7 +111,7 @@
 % 		EEGLAB: https://sccn.ucsd.edu/eeglab/download.php
 %				Citation: Delorme, A., Makeig, S., 2004. EEGLAB: An open source toolbox for 
 %							analysis of single-trial EEG dynamics including independent 
-%							component analysis. J. Neurosci. Methods 134, 9–21.
+%							component analysis. J. Neurosci. Methods 134, 9√ê21.
 %
 %		ERPLAB: will be automatically installed as an EEGLAB plugin if necessary
 %			    Citation: Lopez-Calderon, J., Luck, S.J., 2014. ERPLAB: an open-source 
@@ -126,12 +126,12 @@
 %		ADJUST: will be automatically installed as an EEGLAB plugin if necessary
 %				Citation: Mognon, A., Jovicich, J., Bruzzone, L., Buiatti, M., 2011. ADJUST: 
 %							An automatic EEG artifact detector based on the joint use of 
-%							spatial and temporal features. Psychophysiology 48, 229–240. 
+%							spatial and temporal features. Psychophysiology 48, 229√ê240. 
 %
 %		FASTER:	will be automatically installed as an EEGLAB plugin if necessary
 %				Citation: Nolan, H., Whelan, R., Reilly, R.B., 2010. FASTER: Fully 
 %							Automated Statistical Thresholding for EEG artifact Rejection. 
-%							J. Neurosci. Methods 192, 152–162.	
+%							J. Neurosci. Methods 192, 152√ê162.	
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -391,15 +391,15 @@ function APPLESEED(filenamebase, parentdir, varargin)
 	logfile=fopen(logfilename,'w');
 	fprintf(logfile,'%s\n\n  %s\n               %s\n               %s\n','Automated Preprocessing Pipe-Line for the Estimation of Scale-wise Entropy from EEG Data (APPLESEED)', ...
 		'-Citations : Puglia, M.H., Slobin, J.S., Williams, C.L., 2021. The Automated Preprocessing Pipe-Line for the Estimation of Scale-wise Entropy from EEG Data (APPLESEED): Development and validation for use in pediatric populations. bioRxiv. https://doi.org/10.1101/2021.07.10.450198.',...
-		'Delorme, A., Makeig, S., 2004. EEGLAB: An open source toolbox for analysis of single-trial EEG dynamics including independent component analysis. J. Neurosci. Methods 134, 9–21.', ...
+		'Delorme, A., Makeig, S., 2004. EEGLAB: An open source toolbox for analysis of single-trial EEG dynamics including independent component analysis. J. Neurosci. Methods 134, 9√ê21.', ...
 		'Lopez-Calderon, J., Luck, S.J., 2014. ERPLAB: an open-source toolbox for the analysis of event-related potentials. Front. Hum. Neurosci. 8, 213.');
 
 	if strcmp(p.runica, 'on') && strcmp(p.icarejmethd, 'adjusted_ADJUST'); 
 		fprintf(logfile,'               %s\n               %s\n','Debnath, R., Buzzell, G.A., Morales, S., Bowers, M.E., Leach, S.C., Fox, N.A., 2020. The Maryland analysis of developmental EEG (MADE) pipeline. Psychophysiology 57, e13580.', ... 
-			'Mognon, A., Jovicich, J., Bruzzone, L., Buiatti, M., 2011. ADJUST: An automatic EEG artifact detector based on the joint use of spatial and temporal features. Psychophysiology 48, 229–240.'); 
+			'Mognon, A., Jovicich, J., Bruzzone, L., Buiatti, M., 2011. ADJUST: An automatic EEG artifact detector based on the joint use of spatial and temporal features. Psychophysiology 48, 229√ê240.'); 
 	end
-	if strcmp(p.runica, 'on') && strcmp(p.icarejmethd, 'ADJUST'); fprintf(logfile,'               %s\n','Mognon, A., Jovicich, J., Bruzzone, L., Buiatti, M., 2011. ADJUST: An automatic EEG artifact detector based on the joint use of spatial and temporal features. Psychophysiology 48, 229–240.'); end
-	if strcmp(p.chaninterp, 'on'); fprintf(logfile,'               %s\n','Nolan, H., Whelan, R., Reilly, R.B., 2010. FASTER: Fully Automated Statistical Thresholding for EEG artifact Rejection. J. Neurosci. Methods 192, 152–162.'); end
+	if strcmp(p.runica, 'on') && strcmp(p.icarejmethd, 'ADJUST'); fprintf(logfile,'               %s\n','Mognon, A., Jovicich, J., Bruzzone, L., Buiatti, M., 2011. ADJUST: An automatic EEG artifact detector based on the joint use of spatial and temporal features. Psychophysiology 48, 229√ê240.'); end
+	if strcmp(p.chaninterp, 'on'); fprintf(logfile,'               %s\n','Nolan, H., Whelan, R., Reilly, R.B., 2010. FASTER: Fully Automated Statistical Thresholding for EEG artifact Rejection. J. Neurosci. Methods 192, 152√ê162.'); end
 	fprintf(logfile,'\n%s\n\nAnalysis initiated %s\n\nInput dataset    : %s\n',repmat('-',1,200),datetime,fullfile(inputdir,[filenamebase, '.set']));
 	if isfield(p,'chanfile'); fprintf(logfile,'Channel file     : %s\n',fullfile(p.chanfile)); end
 	if ~isfield(p,'binfile') && isfield(p, 'taskwarn')
@@ -692,7 +692,7 @@ function APPLESEED(filenamebase, parentdir, varargin)
 	FileNameAppend='_arsd';
 	CurrentFileName=[CurrentFileName,FileNameAppend];
 
-		%Artifact detection SD: (Based on "Neural correlates of infants’ sensitivity to vocal expressions of peers")	
+		%Artifact detection SD: (Based on "Neural correlates of infants√ï sensitivity to vocal expressions of peers")	
 		testwindow =  [0  p.eplen];
 		winms      =  200;
 		stepms     =  100;	
