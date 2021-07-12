@@ -17,7 +17,7 @@ See Puglia, Slobin, & Williams (2021) for more information on the development an
 ## Accompanying dataset
 An example dataset is available for download from https://openneuro.org/datasets/ds003710. The user should place all APPLESEED scripts within the MATLAB path, download the example dataset to an "APPLESEED_Example_Dataset" directory, and change into this directory in MATLAB. The example code in APPLESEED_batch will then run APPLESEED_setup() and APPLESEED() from the MATLAB command line on the example dataset which includes: EEG data from 48 recording sessions from 13 infants and a channel location file and a bin file (located in the "APPLESEED_Example_Dataset > code" directory). 
 
-See the following publications for more information on the tutorial dataset:
+See the following publications for more information on the example dataset:
 
 * Puglia, M.H., Krol, K.M., Missana, M., Williams, C.L., Lillard, T.S., Morris, J.P., Connelly, J.J., & Grossmann, T. (2020). Epigenetic tuning of brain signal entropy in emergent human social behavior. BMC medicine, 18(1), 1-24. https://doi.org/10.1186/s12916-020-01683-x
 * Puglia, M.H., Slobin, J.S., Williams, C.L., 2021. The Automated Preprocessing Pipe-Line for the Estimation of Scale-wise Entropy from EEG Data (APPLESEED): Development and validation for use in pediatric populations. bioRxiv. https://doi.org/10.1101/2021.07.10.450198.
