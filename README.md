@@ -2,15 +2,15 @@
 
 
 ## About
-APPLESEED (Puglia, Slobin, & Williams, 2021) preprocesses task-based or resting-state EEG data and then computes scale-wise entropy on the data. Scale-wise entropy is an adaptation of multiscale entropy (Costa et al., 2002) in which sample entropy (Richman & Moorman, 2000) is calculated across discontinuous data epochs (Grandy et al., 2016) on the residuals (i.e., after subtracting the within-person average response across trials/epochs) of the preprocessed EEG data, with the entropy similarity criterion parameter, r, recalculated at each scale. 
+APPLESEED (Puglia, Slobin, & Williams, 2022) preprocesses task-based or resting-state EEG data and then computes scale-wise entropy on the data. Scale-wise entropy is an adaptation of multiscale entropy (Costa et al., 2002) in which sample entropy (Richman & Moorman, 2000) is calculated across discontinuous data epochs (Grandy et al., 2016) on the residuals (i.e., after subtracting the within-person average response across trials/epochs) of the preprocessed EEG data, with the entropy similarity criterion parameter, r, recalculated at each scale. 
 
 APPLESEED is implemented as a set of MATALB scripts and functions, including APPLESEED_setup(), which prepares raw EEG data for use in APPLESEED, APPLESEED(), which executes the preprocessing and entropy estimation pipeline on the prepared dataset, and APPLESEED_batch, which demonstrates how APPLESEED can be run as a batch across multiple subjects’ data.
 
-See Puglia, Slobin, & Williams (2021) for more information on the development and optimization of APPLESEED.
+See Puglia, Slobin, & Williams (2022) for more information on the development and optimization of APPLESEED.
 
 * Costa, M., Goldberger, A.L., Peng, C.-K., 2002. Multiscale Entropy Analysis of Complex Physiologic Time Series. Phys. Rev. Lett. 89, 068102. 
 * Grandy, T.H., Garrett, D.D., Schmiedek, F., Werkle-Bergner, M., 2016. On the estimation of brain signal entropy from sparse neuroimaging data. Sci. Rep. 6, 23073. 
-* Puglia, M.H., Slobin, J.S., Williams, C.L., 2021. The Automated Preprocessing Pipe-Line for the Estimation of Scale-wise Entropy from EEG Data (APPLESEED): Development and validation for use in pediatric populations. bioRxiv. https://doi.org/10.1101/2021.07.10.450198.
+* Puglia, M.H., Slobin, J.S., Williams, C.L., 2022. The Automated Preprocessing Pipe-Line for the Estimation of Scale-wise Entropy from EEG Data (APPLESEED): Development and validation for use in pediatric populations. Developmental Cognitive Neuroscience, 101163.
 * Richman, J.S., Moorman, J.R., 2000. Physiological time-series analysis using approximate entropy and sample entropy. Am. J. Physiol. Circ. Physiol. 278, H2039–H2049. 
 
 
@@ -20,7 +20,7 @@ An example dataset is available for download from https://openneuro.org/datasets
 See the following publications for more information on the example dataset:
 
 * Puglia, M.H., Krol, K.M., Missana, M., Williams, C.L., Lillard, T.S., Morris, J.P., Connelly, J.J., & Grossmann, T. (2020). Epigenetic tuning of brain signal entropy in emergent human social behavior. BMC medicine, 18(1), 1-24. https://doi.org/10.1186/s12916-020-01683-x
-* Puglia, M.H., Slobin, J.S., Williams, C.L., 2021. The Automated Preprocessing Pipe-Line for the Estimation of Scale-wise Entropy from EEG Data (APPLESEED): Development and validation for use in pediatric populations. bioRxiv. https://doi.org/10.1101/2021.07.10.450198.
+* Puglia, M.H., Slobin, J.S., Williams, C.L., 2022. The Automated Preprocessing Pipe-Line for the Estimation of Scale-wise Entropy from EEG Data (APPLESEED): Development and validation for use in pediatric populations. Developmental Cognitive Neuroscience, 101163.
 
 
 ## License
